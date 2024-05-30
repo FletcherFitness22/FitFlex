@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllMatchups } from '../utils/api';
 
+// Uncomment import statements below after building queries and mutations
+// import { useQuery } from '@apollo/client';
+// import { QUERY_MATCHUPS } from '../utils/queries';
+
 const Home = () => {
   const [matchupList, setMatchupList] = useState([]);
 
@@ -24,7 +28,7 @@ const Home = () => {
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
-        <h1>FitFlex</h1>
+        <h1>Welcome to Tech Matchup!</h1>
       </div>
       <div className="card-body m-5">
         <h2>Here is a list of matchups you can vote on:</h2>
