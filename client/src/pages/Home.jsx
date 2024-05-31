@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { getAllMatchups } from '../utils/api';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { getAllMatchups } from "../utils/api";
 
 // Uncomment import statements below after building queries and mutations
 // import { useQuery } from '@apollo/client';
@@ -14,7 +14,7 @@ const Home = () => {
       try {
         const res = await getAllMatchups();
         if (!res.ok) {
-          throw new Error('No list of matchups');
+          throw new Error("No list of matchups");
         }
         const matchupList = await res.json();
         setMatchupList(matchupList);
@@ -28,11 +28,11 @@ const Home = () => {
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
-        <h1>Welcome to Tech Matchup!</h1>
+        <h1>FitFlex</h1>
       </div>
       <div className="card-body m-5">
-        <h2>Here is a list of matchups you can vote on:</h2>
-        <ul className="square">
+        <h2>Fitness With A Purpose</h2>
+        {/* <ul className="square">
           {matchupList.map((matchup) => {
             return (
               <li key={matchup._id}>
@@ -42,12 +42,12 @@ const Home = () => {
               </li>
             );
           })}
-        </ul>
+        </ul> */}
       </div>
       <div className="card-footer text-center m-3">
-        <h2>Ready to create a new matchup?</h2>
+        <h2>Technique Is Key</h2>
         <Link to="/matchup">
-          <button className="btn btn-lg btn-danger">Create Matchup!</button>
+          <button className="btn btn-lg btn-danger">Click to Start</button>
         </Link>
       </div>
     </div>

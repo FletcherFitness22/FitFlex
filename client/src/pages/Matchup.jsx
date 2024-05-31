@@ -62,11 +62,11 @@ const Lifts = () => {
   return (
     <div className="card bg-white card-rounded w-25">
       <div className="card-header bg-dark text-center">
-        <h1>Let's create a matchup!</h1>
+        <h1>Favorite Flex</h1>
       </div>
       <div className="card-body m-5">
         <form onSubmit={handleFormSubmit}>
-          <label>Tech 1: </label>
+          <label> </label>
           <select name="tech1" onChange={handleInputChange}>
             {techList.map((tech) => {
               return (
@@ -76,7 +76,7 @@ const Lifts = () => {
               );
             })}
           </select>
-          <label>Tech 2: </label>
+          <form> </form>
           <select name="tech2" onChange={handleInputChange}>
             {techList.map((tech) => {
               return (
@@ -87,7 +87,7 @@ const Lifts = () => {
             })}
           </select>
           <button className="btn btn-danger" type="submit">
-            Create Matchup!
+            Technique Time!
           </button>
         </form>
       </div>

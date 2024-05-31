@@ -923,7 +923,8 @@ a:hover {
 
 /* BACKGROUND UTILS */
 .bg-primary {
-  background-color: #2d3e50 !important;
+  /* background-color: #101011 !important; */
+background-image: url('./image/redgym.png');
 }
 
 .bg-info {
@@ -943,7 +944,7 @@ a:hover {
 }
 
 .bg-white {
-  background-color: #ffffff !important;
+  background-color: #fd0707 !important;
 }
 
 .bg-black {
@@ -1024,7 +1025,7 @@ a:hover {
 }
 
 .btn.btn-danger {
-  background-color: #e64c66;
+  background-color: #1f1c1d;
   color: #ffffff;
 }
 
@@ -1033,7 +1034,7 @@ a:hover {
 }
 
 .btn.btn-info {
-  background-color: #1bbc9b;
+  background-color: #181a19;
   color: #ffffff;
 }
 
@@ -1047,7 +1048,7 @@ a:hover {
 }
 
 .btn.btn-light:hover {
-  background-color: #84b8b4;
+  background-color: #0d1817;
 }
 
 .btn.btn-dark {

@@ -66,7 +66,7 @@ const Matchup = () => {
       </div>
       <div className="card-body m-5">
         <form onSubmit={handleFormSubmit}>
-          <label>Tech 1: </label>
+          <label> </label>
           <select name="tech1" onChange={handleInputChange}>
             {techList.map((tech) => {
               return (
@@ -76,7 +76,7 @@ const Matchup = () => {
               );
             })}
           </select>
-          <label>Tech 2: </label>
+          <label>: </label>
           <select name="tech2" onChange={handleInputChange}>
             {techList.map((tech) => {
               return (
@@ -87,7 +87,7 @@ const Matchup = () => {
             })}
           </select>
           <button className="btn btn-danger" type="submit">
-            Create Matchup!
+            Your Time
           </button>
         </form>
       </div>
