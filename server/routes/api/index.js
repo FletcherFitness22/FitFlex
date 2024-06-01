@@ -1,8 +1,10 @@
 const router = require('express').Router();
-const matchupRoutes = require('./matchup-routes');
-const techRoutes = require('./tech-routes.js');
+const userRoutes = require('./user-routes.js');
+const exerciseRoutes = require('./exercise-routes.js');
+const favoritesRoutes = require('./favorite-routes.js');
 
-router.use('/matchup', matchupRoutes);
-router.use('/tech', techRoutes);
+router.use('/user', userRoutes);
+router.use('/exercise', exerciseRoutes);
+router.use('/favorites', favoritesRoutes );
 
 module.exports = router;
