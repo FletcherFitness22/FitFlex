@@ -30,7 +30,7 @@ const Home = () => {
       <div className="card-header bg-dark text-center">
         <h1>FitFlex</h1>
       </div>
-      <div className="card-body m-5">
+      <div className="card-body m-5 text-center">
         <h2>Fitness With A Purpose</h2>
         {/* <ul className="square">
           {matchupList.map((matchup) => {
@@ -45,9 +45,9 @@ const Home = () => {
         </ul> */}
       </div>
       <div className="card-footer text-center m-3">
-        <h2>Technique Is Key</h2>
-        <Link to="/matchup">
-          <button className="btn btn-lg btn-danger">Click to Start</button>
+        <h2>Your Technique Is Key</h2>
+        <Link to="/login">
+          <button className="btn btn-lg btn-danger">Click to Login</button>
         </Link>
       </div>
     </div>
