@@ -1,15 +1,41 @@
+const express = require('express');
 const router = require('express').Router();
+const { createUser } = require('../controllers/authController');
+
 
 // Import user controller and middleware
 const { getSingleUser, createUser, login } = require('../../controllers/user-controller');
 const { authMiddleware } = require('../../utils/auth');
 
-// User routes
-router.route('/')
-  .post(createUser); // Create a user
+// POST /signup route to create a new user
+router.post('/signup', createUser);
 
 router.route('/login')
   .post(login); // Login user
+  // Login route
+router.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    // Find user by email
+    const user = await User.findOne({ email });
+
+    // Check if user exists and password is correct
+    if (!user || !user.validPassword(password)) {
+      return res.status(401).json({ error: 'Invalid email or password' });
+    }
+
+    // Authentication successful, create session or issue token
+    // Example: create a session
+    req.session.userId = user._id;
+
+    // Return success response
+    res.status(200).json({ message: 'Login successful', user });
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 router.route('/me')
   .get(getSingleUser); // Get single user (requires authentication)

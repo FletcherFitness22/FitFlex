@@ -13,6 +13,10 @@ const exerciseSchema = new Schema({
     type: String,
     required: false,
   },
+  Favorite: {
+    type:Boolean,
+    default: false,
+  }
 });
 
 const Exercise = model('Exercise', exerciseSchema);

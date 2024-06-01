@@ -1,5 +1,5 @@
 export const getAllMatchups = () => {
-  return fetch('/api/matchup', {
+  return fetch('/api/', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -7,8 +7,8 @@ export const getAllMatchups = () => {
   });
 };
 
-export const createMatchup = (matchupData) => {
-  return fetch('/api/matchup', {
+export const createUser = (matchupData) => {
+  return fetch('/api/signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
