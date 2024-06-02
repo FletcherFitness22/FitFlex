@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+const db = require('../config/connection');
 const User = require('../models/user'); // Assuming you have a User model defined
 
 // Construct the absolute path to userData.json
@@ -13,7 +14,7 @@ const userData = JSON.parse(fs.readFileSync(userDataPath, 'utf8'));
 async function seedDatabase() {
   try {
     // Connect to MongoDB
-    await mongoose.connect('mongodb://localhost:27017/FitFlex', { useNewUrlParser: true, useUnifiedTopology: true });
+    await db.connect('mongodb://localhost:27017/FitFlex', { useNewUrlParser: true, useUnifiedTopology: true });
 
     // Insert users into the database
     await User.insertMany(userData);
@@ -21,7 +22,7 @@ async function seedDatabase() {
   } catch (error) {
     console.error('Error inserting data:', error);
   } finally {
-    mongoose.connection.close();
+    db.connection.close();
   }
 }
 
