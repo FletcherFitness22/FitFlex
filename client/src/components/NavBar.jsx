@@ -38,7 +38,7 @@ const NavBar = () => {
           <Nav.Link as={Link} to="/" className="nav-link-custom">Home</Nav.Link>
           <Nav.Link href="#about" className="nav-link-custom">About Us</Nav.Link>
           <Nav.Link as={Link} to="/login" className="nav-link-custom">Login</Nav.Link>
-          <Nav.Link as={Link} to="/signup" className="nav-link-custom">Sign-Up</Nav.Link>
+          <Nav.Link as={Link} to="/signup" className="nav-link-custom">Sign Up</Nav.Link>
           <Nav.Link href="#contact fitflex" className="nav-link-custom">Contact</Nav.Link>
         </Nav>
       </Navbar.Collapse>

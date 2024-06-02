@@ -95,4 +95,4 @@ const Matchup = () => {
   );
 };
 
-export default Matchup;
+export default Lifts;
