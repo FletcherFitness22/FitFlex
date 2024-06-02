@@ -1,14 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
-  const handleFormSubmit = (event) => {
+  const [formData, setFormData] = useState({
+    username: '',
+    password: ''
+  });
+
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // Handle form submission logic
+    try {
+      const response = await fetch('/api/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      if (response.ok) {
+        // If login is successful, redirect the user to the portal page
+        window.location.href = '/portal';
+      } else {
+        // If login fails, display an error message
+        alert('Invalid username or password');
+      }
+    } catch (error) {
+      console.error('Error logging in:', error);
+      alert('An error occurred while logging in');
+    }
   };
 
   const handleInputChange = (event) => {
-    // Handle input change logic
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
 
   return (
@@ -19,12 +47,13 @@ const Login = () => {
       <div className="card-body m-5">
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
-            <label>Email:</label>
+            <label>Username:</label>
             <input
-              type="email"
+              type="text"
               className="form-control"
-              placeholder="Enter your email"
-              name="email"
+              placeholder="Enter your username"
+              name="username"
+              value={formData.username}
               onChange={handleInputChange}
             />
           </div>
@@ -35,6 +64,7 @@ const Login = () => {
               className="form-control"
               placeholder="Enter your password"
               name="password"
+              value={formData.password}
               onChange={handleInputChange}
             />
           </div>
