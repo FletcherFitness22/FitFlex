@@ -1,18 +1,18 @@
 const express = require('express');
-const router = require('express').Router();
-const { createUser } = require('../controllers/authController');
-
+const router = express.Router();
+const { createUser: createUserAuth } = require('../../controllers/auth-controllers'); // Renamed the import
 
 // Import user controller and middleware
-const { getSingleUser, createUser, login } = require('../../controllers/user-controller');
+const { getSingleUser, createUser, login } = require('../../controllers/user-controller'); // This line is fine, assuming `createUser` is different from `createUserAuth`
 const { authMiddleware } = require('../../utils/auth');
 
 // POST /signup route to create a new user
-router.post('/signup', createUser);
+router.post('/signup', createUserAuth); // Used the renamed import
 
 router.route('/login')
   .post(login); // Login user
-  // Login route
+
+// Login route
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -50,4 +50,3 @@ router.route('/favorites')
   .delete(deleteFavorite); // Delete a favorite (requires authentication)
 
 module.exports = router;
-
