@@ -30,6 +30,7 @@ module.exports = {
   // {body} is destructured req.body
   async login({ body }, res) {
     const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] });
+    console.log(user);
     if (!user) {
       return res.status(400).json({ message: "Can't find this user" });
     }
