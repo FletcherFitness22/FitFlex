@@ -19,8 +19,8 @@ const Login = () => {
       });
       
       if (response.ok) {
-        // If login is successful, redirect the user to the portal page
-        window.location.href = '/portal';
+        // If login is successful, redirect to dashboard
+        window.location.href = '/dashboard';
       } else {
         // If login fails, display an error message
         alert('Invalid username or password');
