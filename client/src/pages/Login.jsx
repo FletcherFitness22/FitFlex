@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const LoginForm = () => {
+const Login = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     // Handle form submission logic
@@ -14,7 +14,7 @@ const LoginForm = () => {
   return (
     <div className="card bg-white card-rounded w-25">
       <div className="card-header bg-dark text-center">
-        <h1>Login In</h1>
+        <h1>Login</h1>
       </div>
       <div className="card-body m-5">
         <form onSubmit={handleFormSubmit}>
@@ -50,4 +50,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default Login;
