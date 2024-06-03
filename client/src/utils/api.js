@@ -1,5 +1,5 @@
-export const getAllMatchups = () => {
-  return fetch('/api', {
+export const getAllExercises = () => {
+  return fetch('/api/exercises', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -7,13 +7,23 @@ export const getAllMatchups = () => {
   });
 };
 
-export const createUser = (userForm) => {
-  return fetch('/api/signup', {
+export const getLogin = (userInfo) => {
+  return fetch('/api/user/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(matchupData),
+    body: JSON.stringify(userInfo)
+  });
+};
+
+export const createUser = (userForm) => {
+  return fetch('/api/user/signup', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(getAllUsers),
   });
 };
 

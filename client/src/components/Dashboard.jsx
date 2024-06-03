@@ -1,48 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Dashboard = () => {
-  const [userData, setUserData] = useState(null); // State to store user data
+  const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
-    // Fetch user data when the component mounts
-    fetchUserData();
-  }, []);
-
-  const fetchUserData = async () => {
-    try {
-      // Fetch user data from the backend
-      const response = await fetch('/api/user/profile', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          // Add authentication token if needed
-          // 'Authorization': `Bearer ${token}`
+    const fetchExercises = async () => {
+      try {
+        const response = await fetch('/api/exercises'); // Adjust the API endpoint accordingly
+        if (response.ok) {
+          const data = await response.json();
+          setExercises(data);
+        } else {
+          console.error('Failed to fetch exercises');
         }
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setUserData(data); // Set user data in state
-      } else {
-        console.error('Error fetching user data:', response.statusText);
+      } catch (error) {
+        console.error('Error fetching exercises:', error);
       }
-    } catch (error) {
-      console.error('Error fetching user data:', error);
-    }
-  };
+    };
+
+    fetchExercises();
+  }, []);
 
   return (
     <div>
-      <h1>Dashboard</h1>
-      {userData ? (
-        <div>
-          <h2>Hello, {userData.username}</h2>
-          <p>Email: {userData.email}</p>
-          {/* Display other user information as needed */}
-        </div>
-      ) : (
-        <p>Loading user data...</p>
-      )}
+      <h1>Exercise List</h1>
+      <ul>
+        {exercises.map(exercise => (
+          <li key={exercise.id}>{exercise.name}</li>
+          // Adjust this according to your exercise object structure
+        ))}
+      </ul>
     </div>
   );
 };
