@@ -25,6 +25,14 @@ export const createUser = (userForm) => {
     },
     body: JSON.stringify(getAllUsers),
   });
+
+//   export const getDashboardData = () => {
+//     return fetch('api/dashboard', {
+//       method: 'GET',
+//       headers: {
+//         'Content-Type': 'application/json',
+//         // Include any authentication headers if needed
+//       },
 };
 
 export const getMatchup = (matchupId) => {
