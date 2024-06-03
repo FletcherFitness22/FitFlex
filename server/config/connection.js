@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const seedDatabase = require('../seeds/seedDatabase');
+const seedDatabase = require('../seeds/seedDatabase');
 
 // Connect to MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/FitFlex', { useNewUrlParser: true, useUnifiedTopology: true })

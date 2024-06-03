@@ -28,19 +28,27 @@ module.exports = {
   // },
   // login a user, sign a token, and send it back (to client/src/components/LoginForm.js)
   // {body} is destructured req.body
-  async login({ body }, res) {
-    const user = await User.findOne({ $or: [{ username: body.username }, { email: body.email }] });
-    console.log(user);
-    if (!user) {
-      return res.status(400).json({ message: "Can't find this user" });
+  async login( req , res) {
+      const { email, password } = req.body;
+console.log('Hello');
+  try {
+    // Find user by email
+    const user = await User.findOne({ email });
+
+    // Check if user exists and password is correct
+    if (!user || !user.isCorrectPassword(password)) {
+      return res.status(401).json({ error: 'Invalid email or password' });
     }
 
-    const correctPw = await user.isCorrectPassword(body.password);
+    // Authentication successful, create session or issue token
+    // Example: create a session
+    // req.session.userId = user._id;
 
-    if (!correctPw) {
-      return res.status(400).json({ message: 'Incorrect password!' });
-    }
-    const token = signToken(user);
-    res.json({ token, user });
+    // Return success response
+    res.status(200).json({ message: 'Login successful', user });
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
   },
 };

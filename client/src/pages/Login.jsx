@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getLogin } from '../utils/api';
+
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: ''
   });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('/api/user/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
+      const response = await getLogin (formData)
       
       if (response.ok) {
         // If login is successful, redirect to dashboard
@@ -47,13 +43,13 @@ const Login = () => {
       <div className="card-body m-5">
         <form onSubmit={handleFormSubmit}>
           <div className="form-group">
-            <label>Username:</label>
+            <label>Email:</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter your username"
-              name="username"
-              value={formData.username}
+              placeholder="Enter your email"
+              name="email"
+              value={formData.email}
               onChange={handleInputChange}
             />
           </div>

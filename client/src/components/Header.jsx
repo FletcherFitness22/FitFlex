@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Userform from './UserForm'; // Import SignUp component
 import NavBar from './NavBar'; // Import your navigation component
 import UserForm from './UserForm';
-import Portal from './components/Portal';
+import Dashboard from './Dashboard';
+
 
 const Header = () => {
   return (
